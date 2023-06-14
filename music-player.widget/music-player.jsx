@@ -1,4 +1,4 @@
-import { css } from "uebersicht";
+import { css, run } from "uebersicht";
 
 export const command = `./music-player/music-player.widget/lib/nowplaying-cli get title artist artworkData artworkMIMEType duration elapsedTime`
 
@@ -54,7 +54,19 @@ const styles = {
       border-radius: 2px;
       background-color: #fff;
     }
-  `
+  `,
+  controler: css`
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+    fill: #fff;
+    :hover {
+      opacity: 0.7;
+    }
+`,
 }
 
 
@@ -69,6 +81,29 @@ export const render = ({ output, ...props }) => {
         <p className={styles.bar}>
           <span style={{width: `${100*elapsedTime/duration}%`}}></span>
         </p>
+        <div>
+          <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli previous")}>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.5 18V6H7.5V18H5.5ZM18.5 18L9.5 12L18.5 6V18Z"/>
+            </svg>
+          </button>
+          <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli pause")}>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 19V5H18V19H14ZM6 19V5H10V19H6Z"/>
+            </svg>
+          </button>
+          <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli play")}>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 19V5L19 12L8 19Z"/>
+            </svg>
+          </button>
+          
+          <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli next")}>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.5 18V6H18.5V18H16.5ZM5.5 18V6L14.5 12L5.5 18Z"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   )
