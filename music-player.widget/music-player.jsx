@@ -1,6 +1,6 @@
 import { css, run } from "uebersicht";
 
-export const command = `./music-player/music-player.widget/lib/nowplaying-cli get title artist artworkData artworkMIMEType duration elapsedTime playbackRate`
+export const command = `./music-player.widget/music-player.widget/lib/nowplaying-cli get title artist artworkData artworkMIMEType duration elapsedTime playbackRate`
 
 export const refreshFrequency = 500; // ms
 
@@ -88,25 +88,25 @@ export const render = ({ output, ...props }) => {
           <span style={{width: `${100*elapsedTime/duration}%`}}></span>
         </p>
         <div className={styles.controlers}>
-          <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli previous")}>
+          <button className={styles.controler} onClick={() => run("./music-player.widget/music-player.widget/lib/nowplaying-cli previous")}>
             <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.5 18V6H7.5V18H5.5ZM18.5 18L9.5 12L18.5 6V18Z"/>
             </svg>
           </button>
           {playbackRate == 1 ? (
-            <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli pause")}>
+            <button className={styles.controler} onClick={() => run("./music-player.widget/music-player.widget/lib/nowplaying-cli pause")}>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14 19V5H18V19H14ZM6 19V5H10V19H6Z"/>
               </svg>
             </button>
           ) : (
-            <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli play")}>
+            <button className={styles.controler} onClick={() => run("./music-player.widget/music-player.widget/lib/nowplaying-cli play")}>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 19V5L19 12L8 19Z"/>
               </svg>
             </button>
           )}
-          <button className={styles.controler} onClick={() => run("./music-player/music-player.widget/lib/nowplaying-cli next")}>
+          <button className={styles.controler} onClick={() => run("./music-player.widget/music-player.widget/lib/nowplaying-cli next")}>
             <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.5 18V6H18.5V18H16.5ZM5.5 18V6L14.5 12L5.5 18Z"/>
             </svg>
